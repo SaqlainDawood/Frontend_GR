@@ -1,0 +1,1046 @@
+/* ============================================
+   RESET & BASE
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: #f0f2f5;
+  color: #1a1a2e;
+  line-height: 1.6;
+}
+
+/* ============================================
+   APP CONTAINER
+   ============================================ */
+.app-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+  min-height: 100vh;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.header {
+  padding: 20px 0 15px 0;
+  border-bottom: 2px solid #f0f2f5;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.uae-flag {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+}
+
+.icp-logo {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.step-indicator {
+  font-size: 14px;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+/* ============================================
+   PROGRESS BAR
+   ============================================ */
+.progress-bar-container {
+  padding: 30px 0 25px 0;
+}
+
+.progress-steps {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.step-dot-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.step-dot {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #e9ecef;
+  color: #6c757d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  border: 3px solid transparent;
+  position: relative;
+  z-index: 2;
+}
+
+.step-dot.active {
+  background: #1a73e8;
+  color: white;
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.15);
+}
+
+.step-dot.completed {
+  background: #28a745;
+  color: white;
+  border-color: #28a745;
+}
+
+.step-label {
+  margin-top: 6px;
+  font-size: 11px;
+  color: #6c757d;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.progress-line {
+  height: 3px;
+  background: #e9ecef;
+  border-radius: 2px;
+  position: relative;
+  margin: 0 10px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #1a73e8, #0d47a1);
+  border-radius: 2px;
+  transition: width 0.5s ease;
+}
+
+/* ============================================
+   FORM CONTAINER
+   ============================================ */
+.form-container {
+  padding: 10px 0 20px 0;
+}
+
+/* ============================================
+   STEP 1 - PREMIUM DARK THEME
+   ============================================ */
+
+.step1-container {
+  background: #111111;
+  border-radius: 24px;
+  padding: 48px 40px 40px 40px;
+  animation: fadeUp 0.6s ease-out;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   1. ANIMATED VERIFICATION ICON
+   ============================================ */
+.verification-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.verification-ring {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+/* Glow effect */
+.ring-glow {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.15) 0%, transparent 70%);
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+/* Rotating ring */
+.ring-rotate {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: spin 8s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Dots */
+.dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.6);
+}
+
+.dot-1 { top: -4px; left: 50%; transform: translateX(-50%); }
+.dot-2 { top: 10%; right: -4px; transform: translateY(-50%); }
+.dot-3 { bottom: 10%; right: -4px; transform: translateY(50%); }
+.dot-4 { bottom: -4px; left: 50%; transform: translateX(-50%); }
+.dot-5 { bottom: 10%; left: -4px; transform: translateY(50%); }
+.dot-6 { top: 10%; left: -4px; transform: translateY(-50%); }
+.dot-7 { top: 25%; right: -2px; }
+.dot-8 { bottom: 25%; left: -2px; }
+
+/* Center icon */
+.center-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  background: #1a1a2e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(34, 197, 94, 0.3);
+  box-shadow: 0 0 30px rgba(34, 197, 94, 0.1);
+}
+
+.center-icon svg {
+  width: 28px;
+  height: 28px;
+  color: #22c55e;
+}
+
+/* ============================================
+   2. HEADING
+   ============================================ */
+.step1-heading {
+  font-size: 44px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  margin: 0 0 28px 0;
+  text-align: left;
+}
+
+/* ============================================
+   3. EMIRATES ID IMAGE
+   ============================================ */
+.emirates-id-image-wrapper {
+  width: 100%;
+  margin-bottom: 28px;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.emirates-id-image-wrapper:hover {
+  transform: scale(1.01);
+}
+
+.emirates-id-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: block;
+}
+
+/* ============================================
+   4. LABEL
+   ============================================ */
+.step1-label {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.step1-label .asterisk {
+  color: #ef4444;
+  margin-left: 2px;
+}
+
+/* ============================================
+   5. INPUT FIELD
+   ============================================ */
+.step1-input {
+  width: 100%;
+  height: 56px;
+  padding: 0 20px;
+  background: #1e1e2e;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.step1-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.step1-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+  background: #252540;
+}
+
+.step1-input.error {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
+}
+
+.step1-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.step1-error {
+  color: #ef4444;
+  font-size: 14px;
+  margin-top: 8px;
+  text-align: left;
+}
+
+/* ============================================
+   6. VERIFY BUTTON
+   ============================================ */
+.step1-verify-btn {
+  width: 100%;
+  height: 56px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  border: none;
+  border-radius: 16px;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.step1-verify-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.step1-verify-btn:hover:not(:disabled)::before {
+  left: 100%;
+}
+
+.step1-verify-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(37, 99, 235, 0.4);
+}
+
+.step1-verify-btn:active:not(:disabled) {
+  transform: translateY(0px);
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+}
+
+.step1-verify-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Button loader */
+.btn-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.btn-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top: 2px solid #ffffff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* ============================================
+   7. FOOTER TEXT
+   ============================================ */
+.step1-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.35);
+  margin-top: 28px;
+  text-align: center;
+}
+
+.footer-icon {
+  font-size: 14px;
+}
+
+/* ============================================
+   NEXT BUTTON (Appears after verification)
+   ============================================ */
+.step1-next-btn {
+  width: 100%;
+  height: 56px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border: none;
+  border-radius: 16px;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 16px;
+  animation: fadeUp 0.4s ease-out;
+}
+
+.step1-next-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(34, 197, 94, 0.4);
+}
+
+.step1-next-btn:active {
+  transform: translateY(0px);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .step1-container {
+    padding: 32px 24px 32px 24px;
+  }
+
+  .step1-heading {
+    font-size: 34px;
+  }
+
+  .verification-ring {
+    width: 80px;
+    height: 80px;
+  }
+
+  .center-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .center-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .step1-input {
+    height: 50px;
+    font-size: 15px;
+  }
+
+  .step1-verify-btn {
+    height: 50px;
+    font-size: 16px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .step1-container {
+    padding: 24px 16px 24px 16px;
+    border-radius: 16px;
+  }
+
+  .step1-heading {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .verification-ring {
+    width: 72px;
+    height: 72px;
+  }
+
+  .center-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .center-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .step1-input {
+    height: 46px;
+    font-size: 14px;
+    padding: 0 16px;
+    border-radius: 12px;
+  }
+
+  .step1-verify-btn {
+    height: 46px;
+    font-size: 15px;
+    border-radius: 12px;
+  }
+
+  .step1-next-btn {
+    height: 46px;
+    font-size: 15px;
+    border-radius: 12px;
+  }
+
+  .step1-footer {
+    font-size: 12px;
+    flex-wrap: wrap;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+  .step1-container {
+    padding: 56px 48px 48px 48px;
+  }
+
+  .step1-heading {
+    font-size: 48px;
+  }
+
+  .verification-ring {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* ============================================
+   STEP 2: ACTION REQUIRED
+   ============================================ */
+.action-required {
+  padding: 10px 0;
+}
+
+.warning-banner {
+  background: rgb(184, 6, 6);
+  border-left: 4px solid #ffc107;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.warning-banner .icon {
+  font-size: 24px;
+
+}
+
+.warning-banner .text {
+  font-size: 14px;
+  color: white;
+  font-weight: 500;
+}
+
+.action-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 20px;
+}
+
+.action-list {
+  list-style: none;
+  padding: 0;
+}
+
+.action-list li {
+  padding: 15px 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #e9ecef;
+  font-size: 15px;
+  color: #1a1a2e;
+  line-height: 1.5;
+}
+
+.action-list li strong {
+  color: #dc3545;
+}
+
+.action-list li .highlight {
+  background: #fff3cd;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.understand-section {
+  background: #e8f0fe;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 25px 0;
+  border: 1px solid #d2e3fc;
+}
+
+.understand-section label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  color: #1a1a2e;
+  cursor: pointer;
+}
+
+.understand-section input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  accent-color: #1a73e8;
+}
+
+/* ============================================
+   STEP 3: GET VERIFIED
+   ============================================ */
+.get-verified {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.get-verified .icon-large {
+  font-size: 64px;
+  margin-bottom: 15px;
+}
+
+.get-verified h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 8px;
+}
+
+.get-verified .subtitle {
+  font-size: 16px;
+  color: #6c757d;
+  margin-bottom: 25px;
+}
+
+.verification-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+.spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid #e9ecef;
+  border-top: 3px solid #1a73e8;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ============================================
+   STEP 4: BANK DETAILS
+   ============================================ */
+.bank-details {
+  padding: 10px 0;
+}
+
+.bank-details h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 5px;
+}
+
+.bank-details .subtitle {
+  color: #6c757d;
+  margin-bottom: 25px;
+  font-size: 15px;
+}
+
+.form-group {
+  margin-bottom: 22px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #1a73e8;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1);
+}
+
+.form-group input.error {
+  border-color: #dc3545;
+}
+
+.radio-group {
+  display: flex;
+  gap: 20px;
+  margin-top: 5px;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.radio-group input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #1a73e8;
+}
+
+.verification-type {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin: 10px 0;
+}
+
+.verification-type button {
+  padding: 15px;
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.verification-type button:hover {
+  border-color: #1a73e8;
+  background: #f8f9fa;
+}
+
+.verification-type button.active {
+  border-color: #1a73e8;
+  background: #e8f0fe;
+  color: #1a73e8;
+}
+
+/* ============================================
+   STEP 5: MANUAL VERIFICATION
+   ============================================ */
+.manual-verification {
+  padding: 10px 0;
+}
+
+.manual-verification h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 5px;
+}
+
+.manual-verification .subtitle {
+  color: #6c757d;
+  margin-bottom: 25px;
+  font-size: 15px;
+}
+
+.card-input-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.card-input-group .full-width {
+  grid-column: 1 / -1;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.button-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.btn {
+  padding: 14px 35px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+.btn-primary {
+  background: #1a73e8;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #1557b0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(26, 115, 232, 0.3);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-secondary {
+  background: #e9ecef;
+  color: #1a1a2e;
+}
+
+.btn-secondary:hover {
+  background: #dde0e3;
+}
+
+.btn-success {
+  background: #28a745;
+  color: white;
+}
+
+.btn-success:hover {
+  background: #1e7e34;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid #e9ecef;
+  color: #1a1a2e;
+}
+
+.btn-outline:hover {
+  border-color: #1a73e8;
+  color: #1a73e8;
+}
+
+/* ============================================
+   FOOTER NOTE
+   ============================================ */
+.footer-note {
+  text-align: center;
+  font-size: 12px;
+  color: #6c757d;
+  padding-top: 20px;
+  border-top: 1px solid #f0f2f5;
+  margin-top: 15px;
+  line-height: 1.5;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 640px) {
+  .app-container {
+    margin: 10px;
+    padding: 15px;
+  }
+
+  .header-content {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .emirates-id-card {
+    padding: 20px;
+  }
+
+  .card-input-group {
+    grid-template-columns: 1fr;
+  }
+
+  .verification-type {
+    grid-template-columns: 1fr;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .radio-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .action-list li {
+    font-size: 14px;
+    padding: 12px 15px;
+  }
+
+  .step-label {
+    font-size: 9px;
+  }
+
+  .step-dot {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .emirates-id-card .card-title h2 {
+    font-size: 16px;
+  }
+
+  .id-number {
+    font-size: 15px;
+  }
+
+  .get-verified h2 {
+    font-size: 22px;
+  }
+
+  .action-title {
+    font-size: 20px;
+  }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.text-center {
+  text-align: center;
+}
+
+.mt-10 { margin-top: 10px; }
+.mt-20 { margin-top: 20px; }
+.mb-10 { margin-bottom: 10px; }
+.mb-20 { margin-bottom: 20px; }
+
+.error-text {
+  color: #dc3545;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.success-text {
+  color: #28a745;
+  font-size: 13px;
+  margin-top: 5px;
+}
