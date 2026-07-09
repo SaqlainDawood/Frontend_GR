@@ -1,0 +1,245 @@
+/* ============================================
+   FOOTER - COMPLETE RESPONSIVE
+   ============================================ */
+
+.footer {
+  background: #fff;
+  border-top: 2px solid #000000ff;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.footer-main {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 36px;
+  justify-content: space-between;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 32px;
+  flex: 1;
+}
+
+.footer-column-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 16px;
+}
+
+.footer-column-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-link {
+  font-size: 13px;
+  color: #555;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #9A7B4F;
+}
+
+.footer-contact {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 220px;
+}
+
+.tawasul-logo {
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 16px;
+}
+
+.contact-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact-label {
+  font-size: 11px;
+  color: #777;
+}
+
+.contact-number {
+  font-size: 13px;
+  font-weight: 700;
+  color: #8B1A1A;
+}
+
+.footer-bottom {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 16px;
+  padding-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.copyright {
+  font-size: 12px;
+  color: #777;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.follow-label {
+  font-size: 12px;
+  color: #555;
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.social-btn {
+  width: 30px;
+  height: 30px;
+  background: #e8e8e8;
+  color: #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.social-btn.hovered {
+  background: #9A7B4F;
+  color: #fff;
+}
+
+.social-btn svg {
+  width: 13px;
+  height: 13px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media screen and (max-width: 992px) {
+  .footer-main {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .footer-links {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .footer-contact {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    padding-right: 0;
+  }
+
+  .social-icons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer-container {
+    padding: 0 20px;
+  }
+
+  .footer-links {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer {
+    padding: 24px 12px 16px;
+  }
+
+  .footer-container {
+    padding: 0 12px;
+  }
+
+  .footer-links {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .footer-column-title {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  .footer-link {
+    font-size: 12px;
+  }
+
+  .contact-number {
+    font-size: 12px;
+  }
+
+  .tawasul-logo {
+    height: 40px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .copyright {
+    font-size: 11px;
+  }
+
+  .social-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .social-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .follow-label {
+    font-size: 11px;
+  }
+}

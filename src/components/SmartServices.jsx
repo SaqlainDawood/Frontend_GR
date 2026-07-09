@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './SmartServices.css'
 // Colorful house icon for UAE Residents (card 02)
 function HouseColorIcon() {
   return (

@@ -1,0 +1,355 @@
+/* ============================================
+   SERVICES GRID - COMPLETE RESPONSIVE
+   ============================================ */
+
+.services-grid-wrapper {
+  background: #f7f7f7;
+  padding: 24px 0;
+}
+
+.services-grid-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* Left Column */
+.services-left-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Row 1: 3 Service Cards */
+.services-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.service-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 7px;
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.service-card-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #222;
+  line-height: 1.3;
+}
+
+.service-card-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.gold-btn {
+  width: 100%;
+  background: #c5a23bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 9px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.3s ease;
+}
+
+.gold-btn:hover {
+  background: #b08c2e;
+}
+
+/* Row 2: 4 Quick Access Cards */
+.quick-access-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.quick-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 7px;
+  padding: 20px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  gap: 10px;
+  min-height: 100px;
+  transition: all 0.3s ease;
+}
+
+.quick-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.quick-card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quick-card-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000000ff;
+  line-height: 1.3;
+}
+
+/* Login Panel */
+.login-panel {
+  width: 240px;
+  flex-shrink: 0;
+  height: auto;
+  background: #fff;
+  border: 1px solid #000000ff;
+  border-radius: 9px;
+  padding: 22px 20px;
+}
+
+.login-panel-title {
+  font-size: 20px;
+  font-weight: 800;
+  text-align: center;
+  color: #111;
+  margin-bottom: 4px;
+}
+
+.login-panel-subtitle {
+  font-size: 12px;
+  text-align: center;
+  color: #000000ff;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.uae-pass-btn {
+  width: 100%;
+  background: #1b2b4d;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 12px;
+  transition: background 0.3s ease;
+}
+
+.uae-pass-btn:hover {
+  background: #243b66;
+}
+
+.uae-pass-text {
+  font-size: 11px;
+  color: #777;
+  text-align: center;
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+
+.login-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.login-divider::before,
+.login-divider::after {
+  flex: 1;
+  height: 1px;
+  background: #e5e7eb;
+}
+
+.login-divider span {
+  font-size: 11px;
+  font-weight: 700;
+  color: #999;
+}
+
+.other-login-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #444;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.other-login-link:hover {
+  color: #000;
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+@media screen and (max-width: 1200px) {
+  .services-grid-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .login-panel {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .services-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .services-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .quick-access-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .service-card {
+    padding: 14px 12px;
+  }
+
+  .service-card-title {
+    font-size: 12px;
+  }
+
+  .gold-btn {
+    font-size: 11px;
+    padding: 8px 6px;
+  }
+
+  .login-panel {
+    padding: 18px 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .services-grid-container {
+    padding: 0 12px;
+  }
+
+  .services-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .quick-access-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .quick-card {
+    min-height: 80px;
+    padding: 12px 8px;
+  }
+
+  .quick-card-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .quick-card-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .quick-card-label {
+    font-size: 12px;
+  }
+
+  .login-panel-title {
+    font-size: 18px;
+  }
+
+  .uae-pass-btn {
+    font-size: 13px;
+    padding: 10px 20px;
+  }
+
+  .service-card {
+    padding: 12px 10px;
+  }
+
+  .service-card-header {
+    margin-bottom: 12px;
+  }
+
+  .service-card-title {
+    font-size: 11px;
+  }
+
+  .gold-btn {
+    font-size: 10px;
+    padding: 6px 4px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .quick-access-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+
+  .quick-card {
+    min-height: 70px;
+    padding: 8px 4px;
+  }
+
+  .quick-card-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .quick-card-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .quick-card-label {
+    font-size: 10px;
+  }
+}

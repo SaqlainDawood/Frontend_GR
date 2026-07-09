@@ -1,8 +1,5 @@
 /* ============================================
-   RESPONSIVE CSS - Golden Residency Project
-   ============================================
-   This file makes your entire project responsive
-   WITHOUT breaking any API calls or functionality.
+   COMPLETE RESPONSIVE CSS
    ============================================ */
 
 /* ============================================
@@ -10,16 +7,13 @@
    ============================================ */
 :root {
   --max-width: 1200px;
-  --padding-mobile: 15px;
-  --padding-tablet: 24px;
+  --padding-mobile: 12px;
+  --padding-tablet: 20px;
   --padding-desktop: 32px;
-  --gap-mobile: 12px;
-  --gap-tablet: 16px;
-  --gap-desktop: 20px;
 }
 
 /* ============================================
-   GLOBAL RESET & BASE
+   GLOBAL RESET
    ============================================ */
 * {
   box-sizing: border-box;
@@ -27,10 +21,7 @@
   padding: 0;
 }
 
-html {
-  overflow-x: hidden;
-}
-
+html,
 body {
   overflow-x: hidden;
   width: 100%;
@@ -44,281 +35,189 @@ img {
 /* ============================================
    CONTAINERS
    ============================================ */
-.container {
-  width: 100%;
-  max-width: var(--max-width);
+.container,
+section > div,
+footer > div,
+header > div {
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--padding-desktop);
 }
 
 /* ============================================
-   RESPONSIVE UTILITY CLASSES
+   ============================================
+   HEADER RESPONSIVE
    ============================================ */
-.hide-on-mobile {
-  display: block;
-}
-
-.hide-on-tablet {
-  display: block;
-}
-
-.show-on-mobile {
-  display: none;
-}
-
-/* ============================================
-   MEDIA QUERIES - MOBILE FIRST APPROACH
-   ============================================ */
-
-/* ============================================
-   Mobile: 320px - 480px
-   ============================================ */
-@media screen and (max-width: 480px) {
-  /* Containers */
-  .container {
-    padding: 0 var(--padding-mobile);
-  }
-
-  /* ============================================
-     HEADER RESPONSIVE
-     ============================================ */
-  .header {
-    padding: 8px 0 !important;
-  }
-
-  .header .logo-section img {
-    height: 35px !important;
-  }
-
-  .header .header-content {
+@media screen and (max-width: 992px) {
+  header > div:first-child {
     flex-direction: column !important;
-    align-items: center !important;
     gap: 8px !important;
-    padding: 8px 0 !important;
+    padding: 8px 16px !important;
   }
 
-  .header .icp-logo {
+  header .header-logo {
+    height: 40px !important;
+  }
+
+  header .header-title-arabic {
     font-size: 14px !important;
+    text-align: center !important;
   }
 
-  /* Header - Navigation */
-  .header nav {
+  header .header-title-english {
+    font-size: 11px !important;
+    text-align: center !important;
+  }
+
+  header .header-emblem {
+    height: 40px !important;
+  }
+
+  /* Navigation */
+  header nav {
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    padding: 4px 0 !important;
   }
 
-  .header nav::-webkit-scrollbar {
-    display: none;
+  header nav::-webkit-scrollbar {
+    display: none !important;
   }
 
-  .header nav a {
-    font-size: 11px !important;
+  header nav a {
+    font-size: 12px !important;
     padding: 0 10px !important;
-    white-space: nowrap;
+    white-space: nowrap !important;
   }
 
-  .header .nav-login-btn {
+  header .nav-icons {
+    gap: 8px !important;
+  }
+
+  header .nav-icons button {
+    padding: 4px !important;
+  }
+
+  header .nav-icons button svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  header .login-btn {
     padding: 4px 12px !important;
-    font-size: 11px !important;
+    font-size: 12px !important;
   }
 
-  /* ============================================
-     HERO SECTION RESPONSIVE
-     ============================================ */
-  .hero-section {
-    padding: 40px 15px !important;
-    min-height: auto !important;
+  header .login-btn svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  header > div:first-child {
+    padding: 6px 10px !important;
   }
 
-  .hero-section h1 {
-    font-size: 22px !important;
-    text-align: center !important;
+  header .header-logo {
+    height: 32px !important;
   }
 
-  .hero-section p {
-    font-size: 13px !important;
-    text-align: center !important;
+  header .header-title-arabic {
+    font-size: 12px !important;
   }
 
+  header .header-title-english {
+    font-size: 9px !important;
+  }
+
+  header .header-emblem {
+    height: 32px !important;
+  }
+
+  header nav a {
+    font-size: 10px !important;
+    padding: 0 6px !important;
+  }
+
+  header .login-btn {
+    padding: 3px 8px !important;
+    font-size: 10px !important;
+  }
+
+  header .login-btn svg {
+    width: 12px !important;
+    height: 12px !important;
+  }
+
+  header .nav-icons button svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+}
+
+/* ============================================
+   HERO SECTION RESPONSIVE
+   ============================================ */
+@media screen and (max-width: 992px) {
   .hero-section .hero-content {
     flex-direction: column-reverse !important;
-    gap: 25px !important;
+    gap: 24px !important;
+    text-align: center !important;
   }
 
   .hero-section .hero-text {
-    text-align: center !important;
     max-width: 100% !important;
+    text-align: center !important;
+  }
+
+  .hero-section .hero-text h1 {
+    font-size: 28px !important;
+  }
+
+  .hero-section .hero-text p {
+    font-size: 14px !important;
+  }
+
+  .hero-section .hero-image img {
+    max-width: 300px !important;
+  }
+
+  .hero-section .hero-text button {
+    width: auto !important;
+    padding: 10px 24px !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero-section {
+    padding: 30px 12px !important;
+  }
+
+  .hero-section .hero-text h1 {
+    font-size: 22px !important;
+  }
+
+  .hero-section .hero-text p {
+    font-size: 13px !important;
   }
 
   .hero-section .hero-image img {
     max-width: 200px !important;
-    height: auto;
   }
 
-  .hero-section button {
+  .hero-section .hero-text button {
     width: 100% !important;
     padding: 12px !important;
-    font-size: 13px !important;
+    font-size: 14px !important;
   }
+}
 
-  /* ============================================
-     SMART SERVICES GRID
-     ============================================ */
-  .smart-services-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 10px !important;
-  }
-
-  .smart-services-grid .service-card {
-    min-height: 140px !important;
-    padding: 12px !important;
-  }
-
-  .smart-services-grid .service-card .card-title {
-    font-size: 11px !important;
-  }
-
-  .smart-services-grid .service-card .card-icon svg {
-    width: 32px !important;
-    height: 32px !important;
-  }
-
-  /* ============================================
-     SERVICES GRID
-     ============================================ */
-  .services-grid {
-    grid-template-columns: 1fr !important;
-    gap: 12px !important;
-  }
-
-  .services-grid .service-card {
-    padding: 16px !important;
-  }
-
-  /* ============================================
-     FEATURE CARDS
-     ============================================ */
-  .feature-cards {
-    grid-template-columns: 1fr !important;
-    gap: 12px !important;
-  }
-
-  .feature-cards .feature-card {
-    min-height: 120px !important;
-    padding: 20px !important;
-  }
-
-  .feature-cards .feature-card h3 {
-    font-size: 16px !important;
-  }
-
-  .feature-cards .feature-card p {
-    font-size: 12px !important;
-    max-width: 100% !important;
-  }
-
-  /* ============================================
-     INFO SECTION
-     ============================================ */
-  .info-section {
-    padding: 16px !important;
-  }
-
-  .info-section ul li {
-    font-size: 12px !important;
-  }
-
-  /* ============================================
-     QUICK SEARCH
-     ============================================ */
-  .quick-search {
-    flex-direction: column !important;
-    gap: 10px !important;
-    padding: 12px 15px !important;
-  }
-
-  .quick-search .search-input {
-    width: 100% !important;
-    padding: 10px 12px !important;
-    font-size: 13px !important;
-  }
-
-  .quick-search .search-btn {
-    width: 100% !important;
-    padding: 10px !important;
-    font-size: 13px !important;
-  }
-
-  .quick-search .search-label {
-    font-size: 13px !important;
-  }
-
-  /* ============================================
-     LOGIN PANEL
-     ============================================ */
-  .login-panel {
-    width: 100% !important;
-    padding: 16px !important;
-  }
-
-  .login-panel h2 {
-    font-size: 18px !important;
-  }
-
-  .login-panel button {
-    padding: 10px !important;
-    font-size: 13px !important;
-  }
-
-  /* ============================================
-     ACCESS PANEL / LOGIN SECTION
-     ============================================ */
-  .access-panel {
-    flex-direction: column !important;
-    gap: 16px !important;
-  }
-
-  .access-panel .login-options {
-    flex-direction: column !important;
-    gap: 10px !important;
-  }
-
-  /* ============================================
-     FOOTER
-     ============================================ */
-  .footer {
-    padding: 24px 15px 16px !important;
-  }
-
-  .footer .footer-grid {
-    grid-template-columns: 1fr !important;
-    gap: 20px !important;
-  }
-
-  .footer .footer-grid h4 {
-    font-size: 13px !important;
-    margin-bottom: 8px !important;
-  }
-
-  .footer .footer-grid a {
-    font-size: 12px !important;
-  }
-
-  .footer .footer-bottom {
-    flex-direction: column !important;
-    gap: 12px !important;
-    padding-top: 16px !important;
-  }
-
-  .footer .footer-bottom .social-icons {
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-  }
-
-  /* ============================================
-     STEP INDICATOR (Multi-step form)
-     ============================================ */
+/* ============================================
+   STEP INDICATOR (Multi-step form)
+   ============================================ */
+@media screen and (max-width: 768px) {
   .progress-steps {
     gap: 4px !important;
     overflow-x: auto !important;
@@ -328,12 +227,12 @@ img {
   }
 
   .progress-steps::-webkit-scrollbar {
-    display: none;
+    display: none !important;
   }
 
   .step-dot-wrapper {
     flex: 0 0 auto !important;
-    min-width: 50px !important;
+    min-width: 48px !important;
   }
 
   .step-dot {
@@ -349,13 +248,33 @@ img {
 
   .progress-line {
     margin: 0 4px !important;
+    height: 2px !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .step-dot-wrapper {
+    min-width: 40px !important;
   }
 
-  /* ============================================
-     FORM CONTAINER
-     ============================================ */
+  .step-dot {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 10px !important;
+  }
+
+  .step-label {
+    font-size: 7px !important;
+    letter-spacing: 0px !important;
+  }
+}
+
+/* ============================================
+   FORM RESPONSIVE
+   ============================================ */
+@media screen and (max-width: 768px) {
   .form-container {
-    padding: 12px !important;
+    padding: 16px !important;
   }
 
   .form-container .form-group {
@@ -383,112 +302,6 @@ img {
     font-size: 14px !important;
   }
 
-  /* ============================================
-     STEP 1 - EMIRATES ID
-     ============================================ */
-  .step1-container {
-    padding: 24px 16px !important;
-    border-radius: 16px !important;
-  }
-
-  .step1-heading {
-    font-size: 24px !important;
-    text-align: center !important;
-  }
-
-  .verification-ring {
-    width: 72px !important;
-    height: 72px !important;
-  }
-
-  .center-icon {
-    width: 34px !important;
-    height: 34px !important;
-  }
-
-  .center-icon svg {
-    width: 18px !important;
-    height: 18px !important;
-  }
-
-  .dot {
-    width: 6px !important;
-    height: 6px !important;
-  }
-
-  .step1-input {
-    height: 46px !important;
-    font-size: 14px !important;
-    padding: 0 14px !important;
-    border-radius: 12px !important;
-  }
-
-  .step1-verify-btn {
-    height: 46px !important;
-    font-size: 15px !important;
-    border-radius: 12px !important;
-  }
-
-  .step1-next-btn {
-    height: 46px !important;
-    font-size: 15px !important;
-    border-radius: 12px !important;
-  }
-
-  .step1-footer {
-    font-size: 12px !important;
-    flex-wrap: wrap !important;
-  }
-
-  .emirates-id-image-wrapper img {
-    border-radius: 12px !important;
-  }
-
-  /* ============================================
-     STEP 2 - ACTION REQUIRED
-     ============================================ */
-  .action-required {
-    padding: 6px 0 !important;
-  }
-
-  .action-required .warning-banner {
-    flex-direction: column !important;
-    text-align: center !important;
-    padding: 12px !important;
-  }
-
-  .action-required .warning-banner .text {
-    font-size: 13px !important;
-  }
-
-  .action-title {
-    font-size: 20px !important;
-  }
-
-  .action-list li {
-    font-size: 13px !important;
-    padding: 12px !important;
-  }
-
-  .understand-section {
-    padding: 16px !important;
-  }
-
-  .understand-section label {
-    font-size: 13px !important;
-  }
-
-  /* ============================================
-     STEP 3 - PERSONAL INFO
-     ============================================ */
-  .bank-details h2 {
-    font-size: 20px !important;
-  }
-
-  .bank-details .subtitle {
-    font-size: 13px !important;
-  }
-
   .radio-group {
     flex-direction: column !important;
     gap: 8px !important;
@@ -499,11 +312,183 @@ img {
     gap: 10px !important;
   }
 
-  /* ============================================
-     STEP 4 - GET VERIFIED
-     ============================================ */
-  .get-verified h2 {
+  .card-input-group {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+}
+
+/* ============================================
+   STEP 1 - EMIRATES ID
+   ============================================ */
+@media screen and (max-width: 768px) {
+  .step1-container {
+    padding: 28px 20px !important;
+    border-radius: 16px !important;
+  }
+
+  .step1-heading {
+    font-size: 30px !important;
+    text-align: center !important;
+  }
+
+  .verification-ring {
+    width: 80px !important;
+    height: 80px !important;
+  }
+
+  .center-icon {
+    width: 38px !important;
+    height: 38px !important;
+  }
+
+  .center-icon svg {
+    width: 22px !important;
+    height: 22px !important;
+  }
+
+  .step1-input {
+    height: 50px !important;
+    font-size: 15px !important;
+  }
+
+  .step1-verify-btn {
+    height: 50px !important;
+    font-size: 16px !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .step1-container {
+    padding: 20px 14px !important;
+  }
+
+  .step1-heading {
+    font-size: 24px !important;
+  }
+
+  .verification-ring {
+    width: 64px !important;
+    height: 64px !important;
+  }
+
+  .center-icon {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .center-icon svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .dot {
+    width: 5px !important;
+    height: 5px !important;
+  }
+
+  .step1-input {
+    height: 44px !important;
+    font-size: 14px !important;
+    padding: 0 12px !important;
+    border-radius: 10px !important;
+  }
+
+  .step1-verify-btn {
+    height: 44px !important;
+    font-size: 14px !important;
+    border-radius: 10px !important;
+  }
+
+  .step1-next-btn {
+    height: 44px !important;
+    font-size: 14px !important;
+    border-radius: 10px !important;
+  }
+
+  .step1-footer {
+    font-size: 11px !important;
+    flex-wrap: wrap !important;
+  }
+}
+
+/* ============================================
+   STEP 2 - ACTION REQUIRED
+   ============================================ */
+@media screen and (max-width: 768px) {
+  .action-required .warning-banner {
+    flex-direction: column !important;
+    text-align: center !important;
+    padding: 12px 16px !important;
+  }
+
+  .action-required .warning-banner .text {
+    font-size: 13px !important;
+  }
+
+  .action-title {
     font-size: 22px !important;
+  }
+
+  .action-list li {
+    font-size: 13px !important;
+    padding: 12px 14px !important;
+  }
+
+  .understand-section {
+    padding: 16px !important;
+  }
+
+  .understand-section label {
+    font-size: 13px !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .action-title {
+    font-size: 18px !important;
+  }
+
+  .action-list li {
+    font-size: 12px !important;
+    padding: 10px 12px !important;
+  }
+
+  .understand-section label {
+    font-size: 12px !important;
+  }
+
+  .understand-section input[type="checkbox"] {
+    width: 18px !important;
+    height: 18px !important;
+  }
+}
+
+/* ============================================
+   STEP 3 - PERSONAL INFO
+   ============================================ */
+@media screen and (max-width: 768px) {
+  .bank-details h2 {
+    font-size: 20px !important;
+  }
+
+  .bank-details .subtitle {
+    font-size: 13px !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .bank-details h2 {
+    font-size: 18px !important;
+  }
+}
+
+/* ============================================
+   STEP 4 - GET VERIFIED
+   ============================================ */
+@media screen and (max-width: 768px) {
+  .get-verified h2 {
+    font-size: 24px !important;
   }
 
   .get-verified .icon-large {
@@ -513,41 +498,53 @@ img {
   .verification-loader {
     flex-direction: column !important;
     padding: 20px !important;
+    gap: 10px !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .get-verified h2 {
+    font-size: 20px !important;
   }
 
-  /* ============================================
-     STEP 5 - BANK DETAILS
-     ============================================ */
+  .get-verified .icon-large {
+    font-size: 40px !important;
+  }
+
+  .verification-loader {
+    padding: 16px !important;
+  }
+
+  .verification-loader .spinner {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  .verification-loader span {
+    font-size: 14px !important;
+  }
+}
+
+/* ============================================
+   STEP 5 - BANK DETAILS (Dropdown)
+   ============================================ */
+@media screen and (max-width: 768px) {
   .custom-dropdown .dropdown-header {
     padding: 10px 12px !important;
     min-height: 44px !important;
-    font-size: 13px !important;
   }
 
   .dropdown-options {
-    max-height: 160px !important;
+    max-height: 180px !important;
   }
 
   .dropdown-option {
     padding: 8px 12px !important;
     font-size: 13px !important;
   }
+}
 
-  /* ============================================
-     STEP 6 - MANUAL VERIFICATION
-     ============================================ */
-  .manual-verification h2 {
-    font-size: 20px !important;
-  }
-
-  .card-input-group {
-    grid-template-columns: 1fr !important;
-    gap: 12px !important;
-  }
-
-  /* ============================================
-     DROPDOWN
-     ============================================ */
+@media screen and (max-width: 480px) {
   .custom-dropdown .dropdown-menu {
     position: fixed !important;
     top: auto !important;
@@ -558,385 +555,8 @@ img {
     max-height: 60vh !important;
   }
 
-  /* ============================================
-     BUTTONS
-     ============================================ */
-  .btn {
-    padding: 12px 20px !important;
-    font-size: 14px !important;
-  }
-
-  .btn-primary,
-  .btn-secondary,
-  .btn-success {
-    width: 100% !important;
-  }
-
-  /* ============================================
-     FOOTER NOTE
-     ============================================ */
-  .footer-note {
-    font-size: 11px !important;
-    padding: 12px !important;
-  }
-
-  /* ============================================
-     UAE FLAG
-     ============================================ */
-  .uae-flag {
-    width: 28px !important;
-    height: 28px !important;
-  }
-}
-
-/* ============================================
-   Large Mobile: 481px - 767px
-   ============================================ */
-@media screen and (min-width: 481px) and (max-width: 767px) {
-  .container {
-    padding: 0 20px;
-  }
-
-  /* Header */
-  .header .header-content {
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 10px !important;
-  }
-
-  .header .logo-section img {
-    height: 40px !important;
-  }
-
-  .header nav a {
-    font-size: 12px !important;
-    padding: 0 12px !important;
-  }
-
-  /* Hero */
-  .hero-section h1 {
-    font-size: 26px !important;
-    text-align: center !important;
-  }
-
-  .hero-section .hero-content {
-    flex-direction: column-reverse !important;
-    gap: 30px !important;
-  }
-
-  .hero-section .hero-text {
-    text-align: center !important;
-  }
-
-  .hero-section .hero-image img {
-    max-width: 280px !important;
-  }
-
-  /* Smart Services */
-  .smart-services-grid {
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 12px !important;
-  }
-
-  /* Services Grid */
-  .services-grid {
-    grid-template-columns: 1fr 1fr !important;
-    gap: 14px !important;
-  }
-
-  /* Feature Cards */
-  .feature-cards {
-    grid-template-columns: 1fr 1fr !important;
-    gap: 14px !important;
-  }
-
-  /* Footer */
-  .footer .footer-grid {
-    grid-template-columns: 1fr 1fr !important;
-    gap: 24px !important;
-  }
-
-  /* Step Indicator */
-  .step-dot {
-    width: 30px !important;
-    height: 30px !important;
-    font-size: 12px !important;
-  }
-
-  .step-label {
-    font-size: 9px !important;
-  }
-
-  /* Form */
-  .form-container {
-    padding: 16px !important;
-  }
-
-  .form-container .button-group {
-    flex-direction: row !important;
-  }
-
-  .form-container .button-group button {
-    flex: 1 !important;
-  }
-}
-
-/* ============================================
-   Tablet: 768px - 1023px
-   ============================================ */
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-  .container {
-    padding: 0 var(--padding-tablet);
-  }
-
-  /* Header */
-  .header .header-content {
-    padding: 12px 0 !important;
-  }
-
-  .header nav a {
-    font-size: 13px !important;
-    padding: 0 14px !important;
-  }
-
-  /* Hero */
-  .hero-section {
-    padding: 50px 20px !important;
-  }
-
-  .hero-section h1 {
-    font-size: 30px !important;
-  }
-
-  .hero-section .hero-content {
-    gap: 30px !important;
-  }
-
-  .hero-section .hero-image img {
-    max-width: 350px !important;
-  }
-
-  /* Smart Services */
-  .smart-services-grid {
-    grid-template-columns: repeat(4, 1fr) !important;
-    gap: 14px !important;
-  }
-
-  /* Services Grid */
-  .services-grid {
-    grid-template-columns: 1fr 1fr !important;
-    gap: 16px !important;
-  }
-
-  /* Access Panel / Login */
-  .access-panel {
-    flex-direction: column !important;
-    gap: 20px !important;
-  }
-
-  .access-panel .login-panel {
-    width: 100% !important;
-  }
-
-  /* Feature Cards */
-  .feature-cards {
-    grid-template-columns: 1fr 1fr 1fr !important;
-    gap: 16px !important;
-  }
-
-  /* Footer */
-  .footer .footer-grid {
-    grid-template-columns: 1fr 1fr 1fr !important;
-    gap: 28px !important;
-  }
-
-  /* Step Indicator */
-  .step-dot-wrapper {
-    min-width: 60px !important;
-  }
-
-  /* Form */
-  .form-container {
-    padding: 20px 24px !important;
-  }
-
-  .card-input-group {
-    grid-template-columns: 1fr 1fr !important;
-  }
-
-  /* Step 1 */
-  .step1-heading {
-    font-size: 36px !important;
-  }
-
-  .verification-ring {
-    width: 88px !important;
-    height: 88px !important;
-  }
-
-  .step1-container {
-    padding: 36px 28px !important;
-  }
-}
-
-/* ============================================
-   Small Laptop: 1024px - 1365px
-   ============================================ */
-@media screen and (min-width: 1024px) and (max-width: 1365px) {
-  .container {
-    padding: 0 28px;
-  }
-
-  /* Smart Services */
-  .smart-services-grid {
-    gap: 16px !important;
-  }
-
-  /* Services Grid */
-  .services-grid {
-    gap: 18px !important;
-  }
-
-  /* Footer */
-  .footer .footer-grid {
-    gap: 32px !important;
-  }
-
-  /* Form */
-  .form-container {
-    padding: 24px 30px !important;
-  }
-}
-
-/* ============================================
-   Laptop: 1366px - 1599px
-   ============================================ */
-@media screen and (min-width: 1366px) and (max-width: 1599px) {
-  .container {
-    padding: 0 32px;
-  }
-
-  .smart-services-grid {
-    gap: 20px !important;
-  }
-
-  .services-grid {
-    gap: 20px !important;
-  }
-}
-
-/* ============================================
-   Desktop: 1600px+
-   ============================================ */
-@media screen and (min-width: 1600px) {
-  .container {
-    padding: 0 40px;
-    max-width: 1400px;
-  }
-
-  .smart-services-grid {
-    gap: 24px !important;
-  }
-
-  .services-grid {
-    gap: 24px !important;
-  }
-
-  .hero-section h1 {
-    font-size: 38px !important;
-  }
-}
-
-/* ============================================
-   2K & 4K Displays
-   ============================================ */
-@media screen and (min-width: 2560px) {
-  .container {
-    padding: 0 60px;
-    max-width: 1800px;
-  }
-
-  .hero-section h1 {
-    font-size: 48px !important;
-  }
-
-  .hero-section p {
-    font-size: 20px !important;
-  }
-
-  .smart-services-grid {
-    gap: 30px !important;
-  }
-
-  .services-grid {
-    gap: 30px !important;
-  }
-}
-
-/* ============================================
-   FIX: No Horizontal Scroll
-   ============================================ */
-@media screen and (max-width: 1023px) {
-  body {
-    overflow-x: hidden !important;
-  }
-
-  .app-container,
-  .app-homepage,
-  .dashboard-container {
-    overflow-x: hidden !important;
-    width: 100% !important;
-  }
-
-  .header,
-  .footer,
-  section {
-    overflow-x: hidden !important;
-  }
-}
-
-/* ============================================
-   FIX: Images in Mobile
-   ============================================ */
-@media screen and (max-width: 767px) {
-  img {
-    max-width: 100% !important;
-    height: auto !important;
-  }
-
-  .emirates-id-image-wrapper img {
-    max-width: 100% !important;
-  }
-}
-
-/* ============================================
-   FIX: Cards on Mobile
-   ============================================ */
-@media screen and (max-width: 480px) {
-  .smart-services-grid .service-card {
-    min-height: 120px !important;
-  }
-
-  .smart-services-grid .service-card .card-icon svg {
-    width: 28px !important;
-    height: 28px !important;
-  }
-
-  .feature-cards .feature-card {
-    min-height: 100px !important;
-  }
-}
-
-/* ============================================
-   FIX: Dropdown on Mobile
-   ============================================ */
-@media screen and (max-width: 480px) {
-  .custom-dropdown .dropdown-menu {
-    max-height: 50vh !important;
-  }
-
   .dropdown-options {
-    max-height: 150px !important;
+    max-height: 140px !important;
   }
 
   .dropdown-search-input {
@@ -945,229 +565,105 @@ img {
 }
 
 /* ============================================
-   FIX: Modal Responsiveness
+   STEP 6 - MANUAL VERIFICATION
    ============================================ */
-@media screen and (max-width: 480px) {
-  .modal-content {
-    padding: 16px !important;
-    margin: 10px !important;
-    max-height: 90vh !important;
-    overflow-y: auto !important;
-  }
-
-  .modal-close {
-    top: 8px !important;
-    right: 8px !important;
+@media screen and (max-width: 768px) {
+  .manual-verification h2 {
     font-size: 20px !important;
   }
+
+  .manual-verification .subtitle {
+    font-size: 13px !important;
+  }
 }
 
-/* ============================================
-   FIX: Input and Button Touch Targets (Mobile)
-   ============================================ */
-@media screen and (max-width: 767px) {
-  input,
-  select,
-  button,
-  .btn {
-    min-height: 44px !important;
+@media screen and (max-width: 480px) {
+  .manual-verification h2 {
+    font-size: 18px !important;
   }
 
-  input[type="checkbox"],
-  input[type="radio"] {
-    min-height: 20px !important;
-    min-width: 20px !important;
+  .manual-verification .subtitle {
+    font-size: 12px !important;
   }
 }
 
 /* ============================================
-   FIX: Step Indicator Scroll on Mobile
+   FOOTER NOTE
    ============================================ */
-@media screen and (max-width: 767px) {
-  .progress-steps {
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding: 4px 0 !important;
+@media screen and (max-width: 768px) {
+  .footer-note {
+    font-size: 11px !important;
+    padding: 12px 16px !important;
   }
+}
 
-  .progress-steps::-webkit-scrollbar {
+@media screen and (max-width: 480px) {
+  .footer-note {
+    font-size: 10px !important;
+    padding: 8px 12px !important;
+  }
+}
+
+/* ============================================
+   UTILITY FIXES
+   ============================================ */
+@media screen and (max-width: 768px) {
+  .hide-on-mobile {
     display: none !important;
   }
 
-  .step-dot-wrapper {
-    flex: 0 0 auto !important;
-    min-width: 50px !important;
-  }
-}
-
-/* ============================================
-   FIX: Logo on Mobile
-   ============================================ */
-@media screen and (max-width: 767px) {
-  .header .logo-section {
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: 8px !important;
+  .show-on-mobile {
+    display: block !important;
   }
 
-  .header .icp-logo {
-    font-size: 13px !important;
+  .text-center-mobile {
+    text-align: center !important;
   }
 
-  .header .step-indicator {
-    font-size: 12px !important;
-  }
-}
-
-/* ============================================
-   FIX: Progress Bar on Mobile
-   ============================================ */
-@media screen and (max-width: 480px) {
-  .progress-bar-container {
-    padding: 16px 0 12px 0 !important;
-  }
-
-  .progress-line {
-    height: 2px !important;
-  }
-}
-
-/* ============================================
-   FIX: Footer Social Icons
-   ============================================ */
-@media screen and (max-width: 480px) {
-  .footer .social-icons a {
-    width: 36px !important;
-    height: 36px !important;
-  }
-
-  .footer .social-icons svg {
-    width: 16px !important;
-    height: 16px !important;
-  }
-
-  .footer .tawasul-logo {
-    height: 40px !important;
-  }
-}
-
-/* ============================================
-   FIX: Quick Search
-   ============================================ */
-@media screen and (max-width: 480px) {
-  .quick-search {
-    padding: 12px 15px !important;
-  }
-
-  .quick-search .search-input {
-    font-size: 14px !important;
-    padding: 10px 12px !important;
-  }
-
-  .quick-search .search-btn {
-    font-size: 14px !important;
-    padding: 10px !important;
-  }
-}
-
-/* ============================================
-   FIX: Feature Cards Colors and Layout
-   ============================================ */
-@media screen and (max-width: 480px) {
-  .feature-cards .feature-card {
-    padding: 16px !important;
-  }
-
-  .feature-cards .feature-card h3 {
-    font-size: 15px !important;
-  }
-
-  .feature-cards .feature-card p {
-    font-size: 12px !important;
-  }
-}
-
-/* ============================================
-   FIX: Login Panel Responsive
-   ============================================ */
-@media screen and (max-width: 767px) {
-  .login-panel {
-    width: 100% !important;
-    margin-top: 16px !important;
-  }
-
-  .login-panel .uae-pass-btn {
-    font-size: 14px !important;
-    padding: 12px !important;
-  }
-
-  .login-panel .other-login-link {
-    font-size: 13px !important;
-  }
-}
-
-/* ============================================
-   FIX: Smart Services Cards on Small Screens
-   ============================================ */
-@media screen and (max-width: 360px) {
-  .smart-services-grid {
-    grid-template-columns: 1fr 1fr !important;
-    gap: 8px !important;
-  }
-
-  .smart-services-grid .service-card {
-    min-height: 100px !important;
-    padding: 10px !important;
-  }
-
-  .smart-services-grid .service-card .card-title {
-    font-size: 10px !important;
-  }
-}
-
-/* ============================================
-   FIX: Dashboard Responsive (If Used)
-   ============================================ */
-@media screen and (max-width: 992px) {
-  .dashboard-container {
+  .flex-column-mobile {
     flex-direction: column !important;
   }
+}
 
-  .dashboard-sidebar {
-    width: 100% !important;
-    position: relative !important;
-    height: auto !important;
+@media screen and (max-width: 480px) {
+  .hide-on-mobile {
+    display: none !important;
   }
 
-  .dashboard-content {
-    padding: 16px !important;
+  .show-on-mobile {
+    display: block !important;
   }
 
-  .dashboard-grid {
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
+  .text-center-mobile {
+    text-align: center !important;
+  }
+
+  .flex-column-mobile {
+    flex-direction: column !important;
   }
 }
 
 /* ============================================
-   FIX: Prevent Overflow on All Screens
+   FIX: No Horizontal Scroll
    ============================================ */
-* {
-  max-width: 100%;
-}
+@media screen and (max-width: 1024px) {
+  body {
+    overflow-x: hidden !important;
+  }
 
-table {
-  max-width: 100%;
-  overflow-x: auto;
-  display: block;
-}
+  .app-container,
+  .app-homepage,
+  section,
+  header,
+  footer {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
 
-iframe,
-video,
-embed {
-  max-width: 100%;
+  .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
 }
 
 /* ============================================

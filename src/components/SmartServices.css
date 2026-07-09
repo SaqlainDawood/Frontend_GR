@@ -1,0 +1,198 @@
+/* ============================================
+   SMART SERVICES - COMPLETE RESPONSIVE
+   ============================================ */
+
+.smart-services-section {
+  background: #ffffff;
+  padding: 40px 0;
+}
+
+.smart-services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.smart-services-title {
+  font-size: 22px;
+  font-weight: 800;
+  text-align: center;
+  color: #111;
+  margin-bottom: 28px;
+}
+
+.smart-services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.smart-service-card {
+  background: #fff;
+  border: 1px solid #000000ff;
+  border-radius: 8px;
+  padding: 16px;
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.smart-service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.smart-service-card.start-verification {
+  background: #fdf3f3;
+  border: 1px solid #f0d0d0;
+}
+
+.smart-service-card-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.smart-service-card-id {
+  font-size: 12px;
+  font-weight: 800;
+  color: #555;
+}
+
+.smart-service-card-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #555;
+}
+
+.smart-service-card-icon {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media screen and (max-width: 992px) {
+  .smart-services-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+
+  .smart-service-card {
+    min-height: 160px;
+    padding: 12px;
+  }
+
+  .smart-service-card-icon svg {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .smart-services-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .smart-service-card {
+    min-height: 140px;
+    padding: 10px;
+  }
+
+  .smart-service-card-id {
+    font-size: 10px;
+  }
+
+  .smart-service-card-title {
+    font-size: 10px;
+  }
+
+  .smart-service-card-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .smart-service-card-icon span {
+    font-size: 28px !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .smart-services-container {
+    padding: 0 12px;
+  }
+
+  .smart-services-title {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .smart-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .smart-service-card {
+    min-height: 110px;
+    padding: 8px;
+    border-radius: 6px;
+  }
+
+  .smart-service-card-id {
+    font-size: 9px;
+  }
+
+  .smart-service-card-title {
+    font-size: 9px;
+  }
+
+  .smart-service-card-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .smart-service-card-icon span {
+    font-size: 22px !important;
+  }
+
+  .smart-service-card-header {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .smart-services-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+
+  .smart-service-card {
+    min-height: 90px;
+    padding: 6px;
+  }
+
+  .smart-service-card-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .smart-service-card-icon span {
+    font-size: 18px !important;
+  }
+
+  .smart-service-card-id {
+    font-size: 8px;
+  }
+
+  .smart-service-card-title {
+    font-size: 8px;
+  }
+}
