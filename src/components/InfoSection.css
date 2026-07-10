@@ -1,0 +1,139 @@
+/* ============================================
+   INFO SECTION - COMPLETE RESPONSIVE
+   ============================================ */
+
+.info-section {
+  background: #fff;
+  padding: 28px 0;
+}
+
+.info-section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.info-section-box {
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  padding: 24px 28px;
+  background: #fff;
+}
+
+.info-section-heading {
+  font-size: 14px;
+  color: #222;
+  font-weight: 600;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.info-section-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.info-section-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.info-section-arrow {
+  color: #615f5f;
+  font-weight: 700;
+  margin-top: 1px;
+  flex-shrink: 0;
+  font-size: 15px;
+}
+
+.info-section-text {
+  color: gray;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media screen and (max-width: 992px) {
+  .info-section-container {
+    padding: 0 20px;
+  }
+
+  .info-section-box {
+    padding: 20px 22px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .info-section {
+    padding: 20px 0;
+  }
+
+  .info-section-container {
+    padding: 0 16px;
+  }
+
+  .info-section-box {
+    padding: 18px 18px;
+  }
+
+  .info-section-heading {
+    font-size: 13px;
+  }
+
+  .info-section-item {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .info-section {
+    padding: 16px 0;
+  }
+
+  .info-section-container {
+    padding: 0 12px;
+  }
+
+  .info-section-box {
+    padding: 14px;
+    border-radius: 6px;
+  }
+
+  .info-section-heading {
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+
+  .info-section-list {
+    gap: 8px;
+  }
+
+  .info-section-item {
+    font-size: 11px;
+    gap: 8px;
+  }
+
+  .info-section-arrow {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .info-section-heading {
+    font-size: 11px;
+  }
+
+  .info-section-item {
+    font-size: 10px;
+  }
+}

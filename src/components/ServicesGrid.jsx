@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './ServicesGrid.css';
 
-// Person icon
 function PersonIcon() {
   return (
     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#aaa" strokeWidth="1.4">
@@ -12,7 +11,6 @@ function PersonIcon() {
   );
 }
 
-// Building icon
 function BuildingIcon() {
   return (
     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#aaa" strokeWidth="1.4">
@@ -22,7 +20,6 @@ function BuildingIcon() {
   );
 }
 
-// Keyboard icon for Typing Centers
 function KeyboardIcon() {
   return (
     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#aaa" strokeWidth="1.4">
@@ -32,12 +29,11 @@ function KeyboardIcon() {
   );
 }
 
-// Shield icon for Start Verification
 function ShieldIcon({ color = '#8B1A1A' }) {
   const navigate = useNavigate();
   return (
     <svg
-      onClick={() => navigate("/register")}
+      onClick={() => navigate('/register')}
       width="32" height="32" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5"
       style={{ cursor: 'pointer' }}
     >
@@ -46,7 +42,6 @@ function ShieldIcon({ color = '#8B1A1A' }) {
   );
 }
 
-// Globe icon
 function GlobeIcon() {
   const navigate = useNavigate();
   return (
@@ -62,7 +57,6 @@ function GlobeIcon() {
   );
 }
 
-// Star icon for Golden Services
 function StarIcon() {
   const navigate = useNavigate();
   return (
@@ -83,13 +77,10 @@ export default function ServicesGrid() {
     <div className="services-grid-wrapper">
       <div className="services-grid-container">
 
-        {/* Left column: service cards + quick access */}
         <div className="services-left-column">
 
-          {/* Row 1: 3 service cards */}
           <div className="services-row">
 
-            {/* Individuals Services */}
             <div className="service-card">
               <div className="service-card-header">
                 <PersonIcon />
@@ -103,7 +94,6 @@ export default function ServicesGrid() {
               </div>
             </div>
 
-            {/* Establishments Services */}
             <div className="service-card">
               <div className="service-card-header">
                 <BuildingIcon />
@@ -117,7 +107,6 @@ export default function ServicesGrid() {
               </div>
             </div>
 
-            {/* Typing Centers Services */}
             <div className="service-card">
               <div className="service-card-header">
                 <KeyboardIcon />
@@ -132,7 +121,6 @@ export default function ServicesGrid() {
             </div>
           </div>
 
-          {/* Row 2: 4 quick access cards */}
           <div className="quick-access-row">
             {[
               { label: 'Start Verification', icon: <ShieldIcon />, bg: '#f1cccbff' },
@@ -150,7 +138,6 @@ export default function ServicesGrid() {
           </div>
         </div>
 
-        {/* Right - Login Panel */}
         <div className="login-panel">
           <h2 className="login-panel-title">Login</h2>
           <p className="login-panel-subtitle">

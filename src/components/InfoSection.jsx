@@ -1,4 +1,5 @@
 import React from 'react';
+import './InfoSection.css';
 
 const items = [
   'Establishments',
@@ -10,31 +11,17 @@ const items = [
 
 export default function InfoSection() {
   return (
-    <div style={{ background: '#fff', padding: '28px 0' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 32px' }}>
-        <div style={{
-          border: '1px solid #e5e7eb',
-          borderRadius: '4px',
-          padding: '24px 28px',
-          background: '#fff',
-        }}>
-          <p style={{
-            fontSize: '14px',
-            color: '#222',
-            fontWeight: '600',
-            marginBottom: '16px',
-            lineHeight: '1.5',
-          }}>
+    <div className="info-section">
+      <div className="info-section-container">
+        <div className="info-section-box">
+          <p className="info-section-heading">
             Kindly note that registration in the Smart Services is available for the following categories:
           </p>
-          <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
+          <ul className="info-section-list">
             {items.map((item, i) => (
-              <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '13px' }}>
-                <span style={{ color: '#615f5fff', fontWeight: '700', marginTop: '1px', flexShrink: 0, fontSize: "15px" }}>{">>"}</span>
-                <p className='fw-bold' style={{ color: 'gray', fontWeight: "500", lineHeight: '1.4' }}
-                >
-                  {item}
-                </p>
+              <li key={i} className="info-section-item">
+                <span className="info-section-arrow">{'>>'}</span>
+                <p className="info-section-text">{item}</p>
               </li>
             ))}
           </ul>
