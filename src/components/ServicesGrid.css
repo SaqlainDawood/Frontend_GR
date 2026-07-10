@@ -5,6 +5,7 @@
 .services-grid-wrapper {
   background: #f7f7f7;
   padding: 24px 0;
+  min-height: 100vh;
 }
 
 .services-grid-container {
@@ -13,7 +14,7 @@
   padding: 0 20px;
   display: flex;
   gap: 20px;
-  align-items: flex-start;
+  align-items: stretch;
 }
 
 .services-left-column {
@@ -21,11 +22,12 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  min-width: 0; /* Prevents overflow */
 }
 
 .services-row {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }
 
@@ -36,6 +38,7 @@
   padding: 18px 16px;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .service-card-header {
@@ -78,7 +81,7 @@
 
 .quick-access-row {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
 }
 
@@ -96,6 +99,7 @@
   gap: 10px;
   min-height: 100px;
   transition: all 0.3s ease;
+  width: 100%;
 }
 
 .quick-card:hover {
@@ -110,6 +114,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .quick-card-label {
@@ -120,13 +125,14 @@
 }
 
 .login-panel {
-  width: 240px;
+  width: 280px;
   flex-shrink: 0;
-  height: auto;
   background: #fff;
   border: 1px solid #000000ff;
   border-radius: 9px;
   padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .login-panel-title {
@@ -223,25 +229,33 @@
 
   .login-panel {
     width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: 0;
   }
 }
 
 @media screen and (max-width: 992px) {
   .services-row {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .quick-access-row {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media screen and (max-width: 768px) {
+  .services-grid-container {
+    padding: 0 15px;
+  }
+
   .services-row {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
   }
 
   .quick-access-row {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
   }
 
@@ -263,7 +277,7 @@
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 576px) {
   .services-grid-container {
     padding: 0 12px;
   }
@@ -274,7 +288,7 @@
   }
 
   .quick-access-row {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
 
@@ -324,7 +338,7 @@
   }
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 400px) {
   .quick-access-row {
     grid-template-columns: 1fr 1fr;
     gap: 6px;
@@ -347,5 +361,9 @@
 
   .quick-card-label {
     font-size: 10px;
+  }
+
+  .services-grid-container {
+    padding: 0 8px;
   }
 }
