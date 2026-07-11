@@ -1,23 +1,17 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from 'react-hot-toast';
-import { AuthProvider, useAuth } from './components/contexts/AuthContext';
 import Home from "./pages/Home";
 import Register from "./pages/Register";
-import LoginPage from "./components/Login/LoginPage";
-import Dashboard from "./components/Dashboard/Dashboard";
-import LoadingSpinner from "./components/common/LoadingSpinner";
-import './components/styles/global.css';
+import OwnerLogin from "./pages/OwnerLogin";
+import OwnerDashboard from "./pages/OwnerDashboard";
+import './styles/globals.css';
 
-// Protected Route Component
-const ProtectedRoute = ({ children }) => {
-  const { isAuthenticated, loading } = useAuth();
+// ✅ Owner Auth Guard
+const OwnerProtectedRoute = ({ children }) => {
+  const token = localStorage.getItem('ownerToken');
   
-  if (loading) {
-    return <LoadingSpinner />;
-  }
-  
-  if (!isAuthenticated) {
-    return <Navigate to="/login" />;
+  if (!token) {
+    return <Navigate to="/owner-login" />;
   }
   
   return children;
@@ -25,55 +19,53 @@ const ProtectedRoute = ({ children }) => {
 
 function App() {
   return (
-    <AuthProvider>
-      <BrowserRouter>
-        <Toaster 
-          position="top-right"
-          toastOptions={{
-            duration: 4000,
+    <BrowserRouter>
+      <Toaster 
+        position="top-right"
+        toastOptions={{
+          duration: 4000,
+          style: {
+            background: '#363636',
+            color: '#fff',
+            borderRadius: '12px',
+          },
+          success: {
+            icon: '🎉',
             style: {
-              background: '#363636',
+              background: '#155724',
               color: '#fff',
-              borderRadius: '12px',
             },
-            success: {
-              icon: '🎉',
-              style: {
-                background: '#155724',
-                color: '#fff',
-              },
+          },
+          error: {
+            icon: '❌',
+            style: {
+              background: '#721c24',
+              color: '#fff',
             },
-            error: {
-              icon: '❌',
-              style: {
-                background: '#721c24',
-                color: '#fff',
-              },
-            },
-          }}
+          },
+        }}
+      />
+      
+      <Routes>
+        {/* ✅ Public Routes (For Clients) */}
+        <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        
+        {/* ✅ Owner Routes */}
+        <Route path="/owner-login" element={<OwnerLogin />} />
+        <Route 
+          path="/owner-dashboard" 
+          element={
+            <OwnerProtectedRoute>
+              <OwnerDashboard />
+            </OwnerProtectedRoute>
+          } 
         />
         
-        <Routes>
-          {/* Public Routes */}
-          <Route path="/" element={<Home />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<LoginPage />} />
-          
-          {/* Protected Routes */}
-          <Route 
-            path="/dashboard" 
-            element={
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
-            } 
-          />
-          
-          {/* Fallback */}
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
-      </BrowserRouter>
-    </AuthProvider>
+        {/* ✅ Fallback */}
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
