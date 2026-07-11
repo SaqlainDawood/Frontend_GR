@@ -17,9 +17,11 @@
   --success: #10B981;
   --error: #EF4444;
   --shadow-glow: 0 0 60px rgba(79, 70, 229, 0.15);
-    --text-primary: #FFFFFF;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --text-muted: rgba(255, 255, 255, 0.3);
+  --input-bg: rgba(255, 255, 255, 0.06);
+  --input-border: rgba(255, 255, 255, 0.1);
+  --label-color: rgba(255, 255, 255, 0.8);
+  --text-color: #FFFFFF;
+  --placeholder-color: rgba(255, 255, 255, 0.3);
 }
 
 /* ============================================
@@ -312,7 +314,9 @@
   text-transform: uppercase;
 }
 
-/* Form */
+/* ============================================
+   FORM - FIXED
+   ============================================ */
 .owner-login-form {
   max-width: 400px;
   margin: 0 auto;
@@ -321,16 +325,15 @@
 .form-group {
   margin-bottom: 22px;
 }
-/* ============================================
-   FIX: LABEL COLORS (Should be white)
-   ============================================ */
+
+/* ✅ LABELS - VISIBLE WHITE */
 .form-label {
   display: flex;
   align-items: center;
   gap: 8px;
   font-weight: 600;
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.8) !important; /* ✅ White text */
+  color: var(--label-color) !important;
   margin-bottom: 8px;
   letter-spacing: 0.3px;
 }
@@ -340,21 +343,21 @@
   color: var(--primary-light);
 }
 
-/* Input Wrapper */
+/* ✅ INPUT WRAPPER */
 .input-wrapper {
   position: relative;
   border-radius: 14px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.04); /* ✅ Slightly lighter */
-  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  background: var(--input-bg);
+  border: 1.5px solid var(--input-border);
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+
 .input-wrapper:focus-within {
   border-color: var(--primary);
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.08);
   box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
 }
-
 
 .input-wrapper.error {
   border-color: var(--error);
@@ -365,30 +368,26 @@
   box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.08);
 }
 
+/* ✅ INPUT - VISIBLE WHITE TEXT */
 .form-input {
   width: 100%;
   padding: 16px 18px;
   border: none;
   background: transparent;
   font-size: 15px;
-  color: #FFFFFF !important; /* ✅ White text */
+  color: var(--text-color) !important;
   outline: none;
   transition: all 0.3s ease;
+  caret-color: #FFFFFF;
 }
+
 .form-input::placeholder {
-  color: rgba(255, 255, 255, 0.3) !important; /* ✅ Light placeholder */
+  color: var(--placeholder-color) !important;
   font-weight: 400;
 }
 
 .form-input:focus {
-  color: #FFFFFF !important; /* ✅ Keep white on focus */
-}
-
-.form-input:-webkit-autofill,
-.form-input:-webkit-autofill:focus {
-  -webkit-text-fill-color: #FFFFFF !important;
-  -webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.04) inset !important;
-  caret-color: #FFFFFF;
+  color: var(--text-color) !important;
 }
 
 .form-input:disabled {
@@ -396,6 +395,19 @@
   cursor: not-allowed;
 }
 
+/* ✅ AUTO-FILL FIX */
+.form-input:-webkit-autofill,
+.form-input:-webkit-autofill:hover,
+.form-input:-webkit-autofill:focus,
+.form-input:-webkit-autofill:active {
+  -webkit-text-fill-color: #FFFFFF !important;
+  -webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.05) inset !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  caret-color: #FFFFFF;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* ✅ INPUT HIGHLIGHT */
 .input-highlight {
   position: absolute;
   bottom: 0;
@@ -410,6 +422,7 @@
   width: 100%;
 }
 
+/* ✅ INPUT GLOW */
 .input-glow {
   position: absolute;
   inset: 0;
@@ -423,6 +436,8 @@
 .input-wrapper:focus-within .input-glow {
   opacity: 1;
 }
+
+/* ✅ PASSWORD TOGGLE */
 .password-toggle {
   position: absolute;
   right: 16px;
@@ -436,10 +451,12 @@
   font-size: 18px;
   transition: all 0.3s ease;
 }
+
 .password-toggle:hover {
   color: rgba(255, 255, 255, 0.7);
 }
 
+/* ✅ ERROR MESSAGE */
 .error-message {
   color: var(--error);
   font-size: 13px;
@@ -455,7 +472,9 @@
   100% { opacity: 1; transform: translateY(0); }
 }
 
-/* Button */
+/* ============================================
+   BUTTON
+   ============================================ */
 .owner-login-btn {
   width: 100%;
   padding: 18px;
