@@ -17,6 +17,9 @@
   --success: #10B981;
   --error: #EF4444;
   --shadow-glow: 0 0 60px rgba(79, 70, 229, 0.15);
+    --text-primary: #FFFFFF;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-muted: rgba(255, 255, 255, 0.3);
 }
 
 /* ============================================
@@ -318,14 +321,16 @@
 .form-group {
   margin-bottom: 22px;
 }
-
+/* ============================================
+   FIX: LABEL COLORS (Should be white)
+   ============================================ */
 .form-label {
   display: flex;
   align-items: center;
   gap: 8px;
   font-weight: 600;
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.8) !important; /* ✅ White text */
   margin-bottom: 8px;
   letter-spacing: 0.3px;
 }
@@ -340,16 +345,16 @@
   position: relative;
   border-radius: 14px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.04); /* ✅ Slightly lighter */
   border: 1.5px solid rgba(255, 255, 255, 0.08);
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-
 .input-wrapper:focus-within {
   border-color: var(--primary);
   background: rgba(255, 255, 255, 0.06);
   box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
 }
+
 
 .input-wrapper.error {
   border-color: var(--error);
@@ -366,14 +371,24 @@
   border: none;
   background: transparent;
   font-size: 15px;
-  color: var(--white);
+  color: #FFFFFF !important; /* ✅ White text */
   outline: none;
   transition: all 0.3s ease;
 }
-
 .form-input::placeholder {
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.3) !important; /* ✅ Light placeholder */
   font-weight: 400;
+}
+
+.form-input:focus {
+  color: #FFFFFF !important; /* ✅ Keep white on focus */
+}
+
+.form-input:-webkit-autofill,
+.form-input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #FFFFFF !important;
+  -webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.04) inset !important;
+  caret-color: #FFFFFF;
 }
 
 .form-input:disabled {
@@ -408,7 +423,6 @@
 .input-wrapper:focus-within .input-glow {
   opacity: 1;
 }
-
 .password-toggle {
   position: absolute;
   right: 16px;
@@ -422,7 +436,6 @@
   font-size: 18px;
   transition: all 0.3s ease;
 }
-
 .password-toggle:hover {
   color: rgba(255, 255, 255, 0.7);
 }
