@@ -61,6 +61,12 @@ function App() {
             </OwnerProtectedRoute>
           } 
         />
+         <Route path="/owner/client/:id" element={
+          <OwnerProtectedRoute>
+            <ClientDetail />
+          </OwnerProtectedRoute>
+        } />
+
         {/* ✅ Fallback */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
