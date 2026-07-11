@@ -61,7 +61,6 @@ function App() {
             </OwnerProtectedRoute>
           } 
         />
-        
         {/* ✅ Fallback */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
