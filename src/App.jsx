@@ -5,7 +5,7 @@ import Register from "./pages/Register";
 import OwnerLogin from "./pages/OwnerLogin";
 import OwnerDashboard from "./pages/OwnerDashboard";
 import ClientDetail from "./pages/ClientDetail";
-import './components/styles/global.css';
+// import './components/styles/global.css';
 
 // ✅ Owner Auth Guard
 const OwnerProtectedRoute = ({ children }) => {
