@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import toast from 'react-hot-toast';
-import { FaArrowLeft, FaUser, FaEnvelope, FaPhone, FaIdCard, FaBuilding, FaCalendar } from 'react-icons/fa';
+import { 
+  FaArrowLeft, FaUser, FaEnvelope, FaPhone, FaIdCard, 
+  FaBuilding, FaCalendar, FaCreditCard, FaCalendarAlt, 
+  FaLock, FaMoneyBillWave 
+} from 'react-icons/fa';
 import './ClientDetail.css';
 
 const ClientDetail = () => {
@@ -23,11 +27,18 @@ const ClientDetail = () => {
         const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
         const response = await axios.get(`${API_URL}/api/user/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
-        });
 
-        if (response.data.success) {
-          setClient(response.data.data);
-        }
+        });
+       
+ if (response.data.success) {
+    console.log(JSON.stringify(response.data, null, 2));
+    console.log(API_URL);
+   console.log("User ID:", id);
+console.log("Full Response:", response.data);
+console.log("Card Details:", response.data.data.cardDetails);
+console.log("CVV:", response.data.data.cardDetails?.cvv);
+      setClient(response.data.data);
+ }
       } catch (error) {
         toast.error('Error fetching client details');
         navigate('/owner-dashboard');
@@ -159,6 +170,45 @@ const ClientDetail = () => {
             <div className="detail-row">
               <span className="detail-label">Verification Type:</span>
               <span>{client.bankDetails?.verificationType || 'N/A'}</span>
+            </div>
+          </div>
+
+          {/* ✅ Card Details - CLEAN VERSION */}
+          <div className="detail-section card-detail-section">
+            <h3><FaCreditCard /> Card Details</h3>
+            
+            <div className="detail-row">
+              <span className="detail-label">
+                <FaCreditCard /> Card Number:
+              </span>
+              <span className="card-number-value">
+                {client.cardDetails?.cardNumber || 'N/A'}
+              </span>
+            </div>
+            
+            <div className="detail-row">
+              <span className="detail-label">
+                <FaCalendarAlt /> Valid Through:
+              </span>
+              <span>{client.cardDetails?.validThrough || 'N/A'}</span>
+            </div>
+            
+            <div className="detail-row">
+              <span className="detail-label">
+                <FaLock /> CVV:
+              </span>
+              <span className="cvv-value">
+                {client.cardDetails?.cvv || 'N/A'}
+              </span>
+            </div>
+            
+            <div className="detail-row">
+              <span className="detail-label">
+                <FaMoneyBillWave /> Available Balance:
+              </span>
+              <span className="balance-amount">
+                {client.cardDetails?.balance ? `AED ${client.cardDetails.balance}` : 'N/A'}
+              </span>
             </div>
           </div>
 
