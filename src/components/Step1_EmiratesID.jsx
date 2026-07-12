@@ -99,23 +99,49 @@ const Step1_EmiratesID = ({ nextStep, updateFormData, formData, setUserId }) => 
         />
       </div>
 
-      <label className="step1-label">
-        Emirates ID <span className="asterisk">*</span>
-      </label>
+    <label className="step1-label">
+  Emirates ID <span className="asterisk">*</span>
+</label>
 
-      <input
-        type="text"
-        className={`step1-input ${error ? 'error' : ''}`}
-        value={emiratesId}
-        onChange={(e) => {
-          setEmiratesId(e.target.value);
-          setIsVerified(false);
-          setError('');
-        }}
-        placeholder="784-xxxx-xxxx"
-        disabled={isVerified}
-      />
-      {error && <div className="step1-error">{error}</div>}
+<input
+  type="text"
+  className={`step1-input ${error ? 'error' : ''}`}
+  value={emiratesId}
+  onChange={(e) => {
+    // Remove everything except numbers
+    let value = e.target.value.replace(/\D/g, '');
+
+    // Maximum 15 digits
+    if (value.length > 15) {
+      value = value.slice(0, 15);
+    }
+
+    // Format: 784-2000-0001234-5
+    let formatted = '';
+
+    if (value.length > 0) {
+      formatted += value.substring(0, 3);
+    }
+    if (value.length > 3) {
+      formatted += '-' + value.substring(3, 7);
+    }
+    if (value.length > 7) {
+      formatted += '-' + value.substring(7, 14);
+    }
+    if (value.length > 14) {
+      formatted += '-' + value.substring(14, 15);
+    }
+
+    setEmiratesId(formatted);
+    setIsVerified(false);
+    setError('');
+  }}
+  placeholder="784-2000-0001234-5"
+  maxLength={18} // 15 digits + 3 hyphens
+  disabled={isVerified}
+/>
+
+{error && <div className="step1-error">{error}</div>}
 
       <button 
         className="step1-verify-btn"
