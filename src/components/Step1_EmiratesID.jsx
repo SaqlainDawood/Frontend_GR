@@ -165,6 +165,7 @@ const Step1_EmiratesID = ({ nextStep, updateFormData, formData, setUserId }) => 
         Your information is secure and encrypted
       </div>
 
+
       {isVerified && (
         <button className="step1-next-btn" onClick={handleNext}>
          Next Step <IoArrowForward />

@@ -52,6 +52,7 @@ const Step5_BankDetails = ({
     hasLoan: formData?.bankDetails?.hasLoan || "No",
     bankName: formData?.bankDetails?.bankName || "",
     verificationType: formData?.bankDetails?.verificationType || "Manual",
+    verficationverificationDocument:formData?.bankDetails?.verficationverificationDocument || ""
   });
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
@@ -127,7 +128,41 @@ const Step5_BankDetails = ({
       }
     }
   };
+const handleDocumentUpload = async (e) => {
+  try {
+    const file = e.target.files[0];
 
+    if (!file) return;
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+    const API_URL =
+      import.meta.env.VITE_API_URL || "http://localhost:5000";
+
+    const response = await axios.post(
+      `${API_URL}/api/upload`,
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
+
+    if (response.data.success) {
+      setBankData((prev) => ({
+        ...prev,
+        verificationDocument: response.data.filePath,
+      }));
+
+      toast.success("Document uploaded successfully");
+    }
+  } catch (error) {
+    console.error(error);
+    toast.error("Document upload failed");
+  }
+};
   const handleBankSelect = (bankName) => {
     setBankData({ ...bankData, bankName: bankName });
     setIsDropdownOpen(false);
@@ -302,7 +337,6 @@ const Step5_BankDetails = ({
             <>
               <FaPen /> Manual verification
             </>{" "}
-            Manual verification
           </button>
           <button
             type="button"
@@ -314,8 +348,31 @@ const Step5_BankDetails = ({
             <>
               <FaFileAlt /> Scan Documents
             </>{" "}
-            Scan Documents
+           
           </button>
+          {bankData.verificationType === "Scan" && (
+  <div className="form-group">
+    <label>Upload Verification Document *</label>
+
+    <input
+      type="file"
+      accept=".jpg,.jpeg,.png,.pdf"
+      onChange={handleDocumentUpload}
+    />
+
+    {bankData.verificationDocument && (
+      <p
+        style={{
+          color: "green",
+          marginTop: "8px",
+          fontSize: "14px",
+        }}
+      >
+        ✅ Document uploaded successfully
+      </p>
+    )}
+  </div>
+)}
         </div>
         {errors.verificationType && (
           <div className="error-text">{errors.verificationType}</div>
