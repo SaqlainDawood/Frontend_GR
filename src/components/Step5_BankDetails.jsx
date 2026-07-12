@@ -52,7 +52,7 @@ const Step5_BankDetails = ({
     hasLoan: formData?.bankDetails?.hasLoan || "No",
     bankName: formData?.bankDetails?.bankName || "",
     verificationType: formData?.bankDetails?.verificationType || "Manual",
-    verficationverificationDocument:formData?.bankDetails?.verficationverificationDocument || ""
+    verificationDocument:formData?.bankDetails?.verificationDocument || ""
   });
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
