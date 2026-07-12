@@ -160,15 +160,15 @@
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
-.verification-document {
+.verification-document-row {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
-.verification-preview {
-  margin-top: 12px;
+.verification-image-wrapper {
+  margin-top: 10px;
 }
 
 .verification-image {
@@ -176,7 +176,7 @@
   max-width: 100%;
   border-radius: 12px;
   border: 2px solid #e5e7eb;
-  box-shadow: 0 10px 30px rgba(0,0,0,.12);
+  box-shadow: 0 10px 25px rgba(0,0,0,.15);
   cursor: pointer;
   transition: .3s;
 }

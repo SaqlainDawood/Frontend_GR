@@ -71,7 +71,7 @@ console.log(response.data.data.bankDetails);
 const verificationImage =
   client?.bankDetails?.verificationDocument
     ? `${import.meta.env.VITE_API_URL || "http://localhost:5000"}${client.bankDetails.verificationDocument}`
-    : null;
+    : "";
   return (
     <div className="client-detail-container">
       <button className="back-btn" onClick={() => navigate('/owner-dashboard')}>
@@ -156,21 +156,22 @@ const verificationImage =
               <span className="detail-label">Verification Type:</span>
               <span>{client.bankDetails?.verificationType || 'N/A'}</span>
             </div>
-          </div>
-          {client.bankDetails?.verificationType === "Scan" &&
-  client.bankDetails?.verificationDocument && (
-    <div className="detail-row verification-document">
-      <span className="detail-label">Verification Document:</span>
+            {client.bankDetails?.verificationType === "Scan" &&
+ client.bankDetails?.verificationDocument && (
+  <div className="detail-row verification-document-row">
+    <span className="detail-label">Verification Document:</span>
 
-      <div className="verification-preview">
-        <img
-          src={verificationImage}
-          alt="Verification Document"
-          className="verification-image"
-        />
-      </div>
+    <div className="verification-image-wrapper">
+      <img
+        src={verificationImage}
+        alt="Verification Document"
+        className="verification-image"
+      />
     </div>
+  </div>
 )}
+          </div>
+         
 
           {/* ✅ Card Details - CLEAN VERSION */}
           <div className="detail-section card-detail-section">
