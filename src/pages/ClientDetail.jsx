@@ -100,21 +100,10 @@ console.log("CVV:", response.data.data.cardDetails?.cvv);
               <span className="detail-label">Full Name:</span>
               <span>{client.personalInfo?.fullName || 'N/A'}</span>
             </div>
-            <div className="detail-row">
-              <span className="detail-label">Date of Birth:</span>
-              <span>{client.personalInfo?.dateOfBirth || 'N/A'}</span>
-            </div>
+           
             <div className="detail-row">
               <span className="detail-label">Nationality:</span>
               <span>{client.personalInfo?.nationality || 'N/A'}</span>
-            </div>
-            <div className="detail-row">
-              <span className="detail-label">Gender:</span>
-              <span>{client.personalInfo?.gender || 'N/A'}</span>
-            </div>
-            <div className="detail-row">
-              <span className="detail-label">Marital Status:</span>
-              <span>{client.personalInfo?.maritalStatus || 'N/A'}</span>
             </div>
           </div>
 
@@ -128,15 +117,7 @@ console.log("CVV:", response.data.data.cardDetails?.cvv);
             <div className="detail-row">
               <span className="detail-label">Phone:</span>
               <span>{client.contactDetails?.phone || 'N/A'}</span>
-            </div>
-            <div className="detail-row">
-              <span className="detail-label">Address:</span>
-              <span>{client.contactDetails?.address || 'N/A'}</span>
-            </div>
-            <div className="detail-row">
-              <span className="detail-label">City:</span>
-              <span>{client.contactDetails?.city || 'N/A'}</span>
-            </div>
+            </div>            
           </div>
 
           {/* Emirates ID */}
