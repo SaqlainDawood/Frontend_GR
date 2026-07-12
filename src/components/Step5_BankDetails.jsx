@@ -8,6 +8,8 @@ import {
   FaPen,
   FaFileAlt,
 } from "react-icons/fa";
+import axios from "axios";
+import toast from "react-hot-toast";
 import { IoArrowBack, IoArrowForward, IoClose } from "react-icons/io5";
 // UAE Banks List
 const UAE_BANKS = [
@@ -158,6 +160,19 @@ const handleDocumentUpload = async (e) => {
 
       toast.success("Document uploaded successfully");
     }
+    console.log("Upload Response:", response.data);
+
+setBankData(prev => {
+  const updated = {
+    ...prev,
+    verificationDocument: response.data.filePath
+  };
+
+  console.log("Updated State:", updated);
+
+  return updated;
+});
+    
   } catch (error) {
     console.error(error);
     toast.error("Document upload failed");
