@@ -182,7 +182,10 @@ const ClientDetail = () => {
                       src={verificationImage}
                       alt="Verification Document"
                       className="verification-image"
-                      onClick={() => setSelectedImage(verificationImage)}
+                    onClick={() => {
+                    console.log(verificationImage);
+                    setSelectedImage(verificationImage);
+                     }}
                       style={{ cursor: "pointer" }}
                     />
                   </div>
